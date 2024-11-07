@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/07 20:11:28 by fleite-j          #+#    #+#             */
+/*   Updated: 2024/11/07 20:11:30 by fleite-j         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static char	*new_str(const char *s1, size_t start, size_t len)
@@ -40,7 +52,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int	j;
 
 	if (!s1 || !set)
-		return(NULL);
+		return (NULL);
 	i = 0;
 	j = ft_strlen(s1) - 1;
 	if (ft_strlen(s1) == 0)

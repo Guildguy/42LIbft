@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/07 20:11:58 by fleite-j          #+#    #+#             */
+/*   Updated: 2024/11/07 20:12:00 by fleite-j         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static void	ft_initiate_vars(size_t *str_index, int *substr_index, int *first_word)
+static void	init_var(size_t *str_index, int *substr_index, int *first_word)
 {
 	*str_index = 0;
 	*substr_index = 0;
@@ -21,7 +33,7 @@ static void	*ft_free(char **strs, int count)
 	return (NULL);
 }
 
-static char	*Create_substr(const char *str, int start, int end)
+static char	*create_substr(const char *str, int start, int end)
 {
 	char	*substr;
 	int		i;
@@ -68,7 +80,7 @@ char	**ft_split(const char *s, char c)
 	int		substr_index;
 	int		first_word;
 
-	ft_initiate_vars(&str_index, &substr_index, &first_word);
+	init_var(&str_index, &substr_index, &first_word);
 	substring = ft_calloc((word_count(s, c) + 1), sizeof(char *));
 	if (!substring)
 		return (NULL);
@@ -76,9 +88,10 @@ char	**ft_split(const char *s, char c)
 	{
 		if (s[str_index] != c && first_word < 0)
 			first_word = str_index;
-		else if ((s[str_index] == c || str_index == ft_strlen(s)) && first_word >= 0)
+		else if ((s[str_index] == c
+				|| str_index == ft_strlen(s)) && first_word >= 0)
 		{
-			substring[substr_index] = Create_substr(s, first_word, str_index);
+			substring[substr_index] = create_substr(s, first_word, str_index);
 			if (!(substring[substr_index]))
 				return (ft_free(substring, substr_index));
 			first_word = -1;
