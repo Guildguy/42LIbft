@@ -10,20 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	srclen;
+	size_t	i;
 
+	i = 0;
 	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-		ft_memcopy(dest, src, srclen + 1);
-	else if (size != 0)
+	if (size > 0)
 	{
-		ft_memcopy(dest, src, srclen - 1);
-		dest[size - 1] = '\0';
+		while (i < size - 1 && src[i] != '\0')
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		if (i < size)
+		{
+			dest[i] = '\0';
+		}
 	}
 	return (srclen);
 }

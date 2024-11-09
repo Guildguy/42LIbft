@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
@@ -24,9 +23,11 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	if (destlen >= size)
 		return (srclen + size);
 	i = 0;
-	while (src[1] && destlen + i < size - 1)
+	while (src[i] && destlen + i < size - 1)
+	{
 		dest[destlen + i] = src[i];
 		i++;
+	}
 	dest[destlen + i] = '\0';
 	return (destlen + srclen);
 }

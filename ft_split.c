@@ -21,13 +21,13 @@ static void	init_var(size_t *str_index, int *substr_index, int *first_word)
 
 static void	*ft_free(char **strs, int count)
 {
-	int	i;
+	int	index;
 
-	i = 0;
-	while (i < count)
+	index = 0;
+	while (index < count)
 	{
-		free(strs[i]);
-		i++;
+		free(strs[index]);
+		index++;
 	}
 	free(strs);
 	return (NULL);
@@ -36,38 +36,38 @@ static void	*ft_free(char **strs, int count)
 static char	*create_substr(const char *str, int start, int end)
 {
 	char	*substr;
-	int		i;
+	int		index;
 
-	i = 0;
+	index = 0;
 	substr = malloc((end - start + 1) * sizeof(char));
 	if (!substr)
 		return (NULL);
 	while (start < end)
 	{
-		substr[i] = str[start];
-		i++;
+		substr[index] = str[start];
+		index++;
 		start++;
 	}
-	substr[i] = '\0';
+	substr[index] = '\0';
 	return (substr);
 }
 
-static int	word_count(const char *str, char c)
+static int	word_count(const char *str, char delimiter)
 {
 	int	count;
-	int	x;
+	int	first_word;
 
 	count = 0;
-	x = 0;
+	first_word = 0;
 	while (*str)
 	{
-		if (*str != c && x == 0)
+		if (*str != delimiter && first_word == 0)
 		{
-			x = 1;
+			first_word = 1;
 			count++;
 		}
-		else if (*str == c)
-			x = 0;
+		else if (*str == delimiter)
+			first_word = 0;
 		str++;
 	}
 	return (count);
@@ -88,7 +88,7 @@ char	**ft_split(const char *s, char c)
 	{
 		if (s[str_index] != c && first_word < 0)
 			first_word = str_index;
-		else if ((s[str_index] == c
+		else if ((s[str_index] == c \
 				|| str_index == ft_strlen(s)) && first_word >= 0)
 		{
 			substring[substr_index] = create_substr(s, first_word, str_index);

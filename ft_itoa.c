@@ -6,7 +6,7 @@
 /*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 20:09:37 by fleite-j          #+#    #+#             */
-/*   Updated: 2024/11/07 20:09:40 by fleite-j         ###   ########.fr       */
+/*   Updated: 2024/11/08 18:49:46 by fleite-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@ static int	interger_len(long number)
 	int	count;
 
 	count = 0;
-	if (number < 0)
-	{
-		count++;
-		number = -number;
-	}
-	if (number == 0)
+	if (number <= 0)
 		count++;
 	while (number != 0)
 	{
@@ -32,7 +27,7 @@ static int	interger_len(long number)
 	return (count);
 }
 
-static char	*pre_conversion(int len)
+static char	*str_allocation(int len)
 {
 	char	*temporary;
 
@@ -52,19 +47,21 @@ char	*ft_itoa(int n)
 
 	number = (long) n;
 	len = interger_len(number);
-	result = pre_conversion(len);
+	result = str_allocation(len);
 	if (!result)
 		return (NULL);
 	i = len - 1;
 	if (number == 0)
-		result[i] = '0';
+		result[i--] = '0';
+	if (n < 0)
+	{
+		result[0] = '-';
+		number = -number;
+	}
 	while (number != 0)
 	{
-		result[i] = ((number % 10) + 48);
+		result[i--] = ((number % 10) + '0');
 		number /= 10;
-		i--;
 	}
-	if (n < 0)
-		result[0] = '-';
 	return (result);
 }

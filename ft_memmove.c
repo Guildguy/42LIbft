@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -18,7 +18,9 @@ char	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char	*temporarydest;
 	size_t			i;
 
-	if (src == NULL || dest == NULL)
+	if (n == 0 || dest == src)
+		return (dest);
+	if (src == NULL && dest == NULL)
 		return (NULL);
 	temporarysrc = (unsigned char *) src;
 	temporarydest = (unsigned char *) dest;
