@@ -6,7 +6,7 @@
 /*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:48:28 by fleite-j          #+#    #+#             */
-/*   Updated: 2024/10/30 16:49:37 by fleite-j         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:42:00 by fleite-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	unsigned char	*temporary;
-	size_t			i;
+	size_t			buffer;
 
-	i = 0;
-	temporary = malloc(nmemb * size);
+	if (nmemb == 0 || size == 0 || nmemb > SIZE_MAX / size)
+		return (NULL);
+	buffer = nmemb * size;
+	temporary = malloc(buffer);
 	if (!temporary)
 		return (NULL);
-	while (i < nmemb * size)
-	{
-		temporary[i] = 0;
-		i++;
-	}
+	ft_bzero(temporary, buffer);
 	return (temporary);
 }
