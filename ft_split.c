@@ -33,25 +33,6 @@ static void	*ft_free(char **strs, int count)
 	return (NULL);
 }
 
-static char	*create_substr(const char *str, int start, int end)
-{
-	char	*substr;
-	int		index;
-
-	index = 0;
-	substr = malloc((end - start + 1) * sizeof(char));
-	if (!substr)
-		return (NULL);
-	while (start < end)
-	{
-		substr[index] = str[start];
-		index++;
-		start++;
-	}
-	substr[index] = '\0';
-	return (substr);
-}
-
 static int	word_count(const char *str, char delimiter)
 {
 	int	count;
@@ -91,7 +72,7 @@ char	**ft_split(const char *s, char c)
 		else if ((s[str_index] == c \
 				|| str_index == ft_strlen(s)) && first_word >= 0)
 		{
-			substring[substr_index] = create_substr(s, first_word, str_index);
+			substring[substr_index] = ft_substr(s, first_word, str_index - first_word);
 			if (!(substring[substr_index]))
 				return (ft_free(substring, substr_index));
 			first_word = -1;
