@@ -1,21 +1,33 @@
-Descrição: A Libft é o primeiro projeto da Escola 42 e consiste na construção de uma biblioteca pessoal em C, recriando funções padrão da libc (como strlen, strcpy, malloc, free, entre outras) e desenvolvendo funções utilitárias adicionais. O objetivo é compreender o funcionamento interno dessas funções e criar um conjunto de ferramentas robustas para uso em projetos futuros.
+## 📚 Libft
 
-Desafios e Implementação:
+### Description
+Libft is the first project at School 42 and consists of building a personal C library by recreating standard libc functions (such as `strlen`, `strcpy`, `malloc`, `free`, among others) and developing additional utility functions.  
+The goal is to understand the internal workings of these functions and to create a robust set of tools for use in future projects.
 
-Compreensão de Funções Padrão: Reimplementar funções comuns exigiu um entendimento aprofundado de como a memória é manipulada e como as operações de baixo nível são realizadas.
+### Challenges and Implementation
 
-Gerenciamento de Memória: Alocação e desalocação manual de memória foram cruciais para evitar memory leaks.
+- **Understanding Standard Functions**  
+  Reimplementing common functions required a deep understanding of memory handling and low-level operations.
 
-Padronização (Norminette): Manter o código conforme as rigorosas diretrizes de estilo da 42 foi um desafio constante.
+- **Memory Management**  
+  Manual memory allocation and deallocation were crucial to avoid memory leaks.
 
-Estruturas de Dados (Bônus): No bônus, implementei funções para manipulação de listas encadeadas (linked lists), aprendendo sobre a criação, inserção, exclusão e iteração de nós.
+- **Code Standardization (Norminette)**  
+  Keeping the code compliant with School 42’s strict style guidelines was a constant challenge.
 
-O que aprendi:
+- **Data Structures (Bonus)**  
+  In the bonus part, I implemented functions to manipulate linked lists, learning how to create, insert, delete, and iterate through nodes.
 
-Programação C de Baixo Nível: Domínio da sintaxe C e manipulação direta de memória.
+### What I Learned
 
-Estrutura de Bibliotecas: Como organizar e compilar uma biblioteca estática para reutilização.
+- **Low-Level C Programming**  
+  Mastery of C syntax and direct memory manipulation.
 
-Fundamentos de Estruturas de Dados: Implementação e manipulação de listas encadeadas e o uso de structs.
+- **Library Structure**  
+  How to organize and compile a static library for reuse.
 
-Boas Práticas de Codificação: Aderência a padrões de código e documentação.
+- **Data Structures Fundamentals**  
+  Implementation and manipulation of linked lists and the use of structs.
+
+- **Good Coding Practices**  
+  Adherence to coding standards and proper documentation.
